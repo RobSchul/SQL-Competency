@@ -12,14 +12,14 @@ select * from customers
 --2. Write a SQL query to pull all customers that have orders (no duplicates).
 
 select *
-from customers s
+from customers 
 where 
 id in (select customerid from orders)
 
 --3. Write a SQL query to pull all customers that do not have orders.
 
 select *
-from customers s
+from customers 
 where 
 id not in (select customerid from orders)
 
