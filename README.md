@@ -11,12 +11,26 @@ SELECT * FROM customers
 
 --2. Write a SQL query to pull all customers that have orders (no duplicates).
 
+
+SELECT distinct(c.name), c.address,c.email FROM customers c
+left join orders o on c.id = o.customerid
+WHERE o.id is not  null
+
+OR you can do 
+
 SELECT *
 FROM customers 
 WHERE 
 id IN (select customerid from orders)
 
+
 --3. Write a SQL query to pull all customers that do not have orders.
+
+SELECT distinct(c.name), c.address,c.email FROM customers c
+left join orders o on c.id = o.customerid
+WHERE o.id is  null
+
+or you can do 
 
 SELECT *
 FROM customers 
